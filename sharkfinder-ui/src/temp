@@ -1,0 +1,73 @@
+<form onSubmit={() => handleSubmit(selections)}>
+
+
+
+
+<ComparisonPage sharklist={sharklist}/>
+{sharklist}
+
+                    {sharklist.map((shark, i) =>
+                        <tr className="tr">
+                            <td>{shark}</td>
+                        </tr>
+                    )}
+
+
+import { useHistory } from 'react-router-dom';
+
+const handleSubmit = (e) => {
+    if (selections.length > 3){
+        alert(`Please reduce your number of selections to a maximum of three.`)
+    } else{
+        alert(selections);
+        history.push("/comparison");
+    }
+}
+
+
+
+
+
+<form action="/comparison">
+    <fieldset>
+        <legend>Please select up to three sharks for comparison</legend>
+        <table className="table">
+            <tbody>
+                {sharks.map((shark, i) => <SharkRow shark={shark} key={i} />)}
+            </tbody>
+        </table>
+        <input type="reset" className="button" name="Reset Selections" value="Reset Selections"></input>
+        <input type="submit" className="button" name="Submit Selections" value="Submit Selections"></input>
+    </fieldset>
+    </form>
+
+<tr className="tr">
+<td>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/White_shark.jpg" width="300" height="200"></img>
+    <button className={style} onClick={changeStyle}>Great White</button>
+</td>
+<td>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Carcharhinus_leucas%2C_Koh_Phangan.jpg" width="300" height="200"></img>
+    <button className={style} onClick={changeStyle}>Bull</button>
+</td>
+<td>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Tiger_shark.jpg/1920px-Tiger_shark.jpg" width="300" height="200"></img>
+    <button className={style} onClick={changeStyle}>Tiger</button>
+</td>
+</tr>
+<tr className="tr">
+<td>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Similan_Dive_Center_-_great_whale_shark.jpg" width="300" height="200"></img>
+    <button className={style} onClick={changeStyle}>Whale</button>
+</td>
+<td>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Cetorhinus_maximus_by_greg_skomal.JPG" width="300" height="200"></img>
+    <button className={style} onClick={changeStyle}>Basking</button>
+</td>
+<td>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Squalus_acanthias_stellwagen.jpg" width="300" height="200"></img>
+    <button className={style} onClick={changeStyle}>Dogfish</button>
+</td>
+</tr>
+
+<img src={shark.image} width="300" height="200"></img><button className={style} onClick={selectShark}>{shark.species}</button></td>
